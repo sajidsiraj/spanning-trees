@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.ipynb_checkpoints/
+.env
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Data & large files (commit only small reference data)
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.bin
+*.zip
+*.tar.gz
+*.rar
+data/raw/
+data/interim/
+outputs/
+
+# LaTeX artefacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.nav
+*.snm
+*.vrb
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.code-workspace
