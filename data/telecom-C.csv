@@ -1,0 +1,6 @@
+C ECONOMIC C1 C2 C3 C4 C5 Priority
+C1 Operating cost 1 1.32 3.74 3.08 6.88 0.4160
+C2 Funding 0.76 1 2.00 1.32 2.57 0.2310
+C3 Capital cost 0.26 0.50 1 2.40 1.10 0.1448
+C4 Return on investment 0.32 0.76 0.42 1 1.86 0.1261
+C5 Economic ~ area 0.15 0.39 0.91 0.54 1 0.0821
