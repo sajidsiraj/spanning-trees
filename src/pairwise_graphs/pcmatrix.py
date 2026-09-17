@@ -59,6 +59,29 @@ def to_graph(A: np.ndarray) -> nx.Graph:
     return G
 
 
+def random_reciprocal_matrix(n: int, noise_sigma: float, rng: np.random.Generator) -> np.ndarray:
+    """A random complete reciprocal PC matrix with controllable inconsistency.
+
+    Draws ``n`` "true" weights from a log-normal distribution, so the fully
+    consistent matrix ``w[i] / w[j]`` is the starting point, then perturbs
+    each judgement independently on the log scale by noise drawn from
+    ``Normal(0, noise_sigma)``: ``A[i, j] = (w[i] / w[j]) * exp(eps_ij)``,
+    with ``A[j, i] = 1 / A[i, j]`` so reciprocity always holds exactly.
+    ``noise_sigma = 0`` gives an exactly consistent matrix; larger values
+    give more inconsistent ones (check the realised CR via
+    :func:`pairwise_graphs.consistency.cr` -- this function controls the
+    perturbation, not the resulting CR, directly).
+    """
+    w = rng.lognormal(mean=0.0, sigma=1.0, size=n)
+    A = np.ones((n, n))
+    for i in range(n):
+        for j in range(i + 1, n):
+            a_ij = (w[i] / w[j]) * np.exp(rng.normal(0.0, noise_sigma))
+            A[i, j] = a_ij
+            A[j, i] = 1.0 / a_ij
+    return A
+
+
 def is_connected(A: np.ndarray) -> bool:
     """Whether enough judgements were given to compare every alternative
     to every other, directly or transitively. A disconnected graph means
