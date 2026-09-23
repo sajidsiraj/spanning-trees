@@ -25,7 +25,7 @@ import java.util.Random;
 public class RandonSpanAHP_6crit3alt {
 
     Random _rng = new Random();
-    String _path = "C:\\Downloads\\";
+    String _path = "./output/";
     /**
      * @param args the command line arguments
      * @throws java.io.IOException
